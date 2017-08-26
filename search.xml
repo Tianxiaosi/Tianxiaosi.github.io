@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hi]]></title>
+    <title><![CDATA[Hi everybody!]]></title>
     <url>%2F2017%2F08%2F26%2FHi%2F</url>
-    <content type="text"><![CDATA[hello everybody this my web.]]></content>
+    <content type="text"><![CDATA[欢迎访问本网站，您的支持是我们最大的动力！ 建议您收藏本站，便于获取最新消息动态。我们一直在努力为您提供更多更好的资源 本站 将是一个充满快乐的地方，网站在策划开发中。 共勉]]></content>
+      <categories>
+        <category>个人</category>
+      </categories>
+      <tags>
+        <tag>welcome</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
