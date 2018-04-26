@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/> 
+	<title>3D 空间的卡片翻转动效</title>
+	<style type="text/css">
+		.main {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  width: 250px;
+		  height: 350px;
+		  margin-left: -125px;
+		  margin-top: -175px;
+		  -webkit-perspective: 800;
+		  -moz-perspective: 800;
+		  -ms-perspective: 800;
+		  -o-perspective: 800;
+		  perspective: 800;
+		}
+		.box {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  transition: all 1s;
+		  backface-visibility: hidden;
+		  border-radius: 10px;
+		  cursor: pointer;
+		}
+		.front{
+		 	background-image: url('./img/front.jpg');
+		}
+		.back {
+			background-image: url('./img/back.jpg');
+		 	transform: rotateY(-180deg);
+		}
+		.main:hover .front{
+			transform: rotateY(180deg);
+		}
+		.main:hover .back{
+			transform: rotateY(0deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+	  <div class="box front"></div>
+	  <div class="box back"></div>
+	</div>
+
+	<script type="text/javascript">
+		/* js 部分*/
+		let front = document.querySelector(".front");
+		let	back = document.querySelector(".back");
+		front.onclick = function() {
+		  front.style.transform = "rotateY(180deg)";
+		  back.style.transform = "rotateY(0deg)";
+		}
+		back.onclick = function() {
+		  back.style.transform = "rotateY(-180deg)";
+		  front.style.transform = "rotateY(0deg)";
+		}
+	</script>
+</body>
+</html>

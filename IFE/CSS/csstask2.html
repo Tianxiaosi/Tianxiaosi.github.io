@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example</title>
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/> 
+	<style type="text/css">
+		.box{
+			position: absolute;
+			top: 300px;
+			width: 60px;
+			height: 68px;
+			margin-left: 40px;
+			background-color: #f7f6f6;
+			border: solid 2px #ebebeb;
+			text-align: center;
+			line-height: 68px;
+			animation: myanimate 6s infinite linear;
+			-webkit-animation-direction:alternate; 
+		}
+		@keyframes myanimate{
+			0% {
+				left: 40px;
+			}
+			20% {
+				left: 180px;
+				-webkit-transform: skewX(30deg);
+			    -moz-transform: skewX(30deg);
+			    -ms-transform: skewX(30deg);
+			    -o-transform: skewX(30deg);
+			    transform: skewX(30deg);
+			}
+			40% {
+				left: 250px;
+				
+				-webkit-transform: scaleX(0.5);
+			    -moz-transform: scaleX(0.5);
+			    -ms-transform:  scaleX(0.5);
+			    -o-transform: scaleX(0.5);
+			    transform:  scaleX(0.5);
+			}
+			60% {
+				left: 360px;
+				-webkit-transform:   rotate(45deg);
+			    -moz-transform:   rotate(45deg);
+			    -ms-transform:   rotate(45deg);
+			    -o-transform:   rotate(45deg);
+			    transform:  rotate(45deg);
+			}
+			80% {
+				left: 480px;
+				-webkit-transform:  translate(10px, 20px);
+			    -moz-transform:  translate(10px, 20px);
+			    -ms-transform:  translate(10px, 20px);
+			    -o-transform:  translate(10px, 20px);
+			    transform:  translate(10px, 20px);
+
+			}
+			100% {
+				left: 600px;
+				-webkit-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			    -moz-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			    -ms-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			    -o-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			    transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+
+			}
+		}
+		.translates{
+			border:1px solid black;
+			height: auto;
+			width: auto;
+			/*padding-bottom: 40px;*/
+			padding:0  40px 40px 40px;
+		}
+		.box0, .box1, .box2, .box3, .box4, .box5{
+			margin-top: 30px;
+			width: 60px;
+			height: 68px;
+			background-color: #f7f6f6;
+			border: solid 2px #ebebeb;
+			text-align: center;
+			line-height: 68px;
+			display: inline-block;
+			margin-right: 50px;
+		}
+		.box1{
+			-webkit-transform: skewX(30deg);
+			-moz-transform: skewX(30deg);
+			-ms-transform: skewX(30deg);
+			-o-transform: skewX(30deg);
+			transform: skewX(30deg);
+		}
+		.box2{
+			-webkit-transform: scaleX(0.5);
+			-moz-transform: scaleX(0.5);
+			-ms-transform:  scaleX(0.5);
+			-o-transform: scaleX(0.5);
+			transform:  scaleX(0.5);
+		}
+		.box3{
+			-webkit-transform:   rotate(45deg);
+			-moz-transform:   rotate(45deg);
+			-ms-transform:   rotate(45deg);
+			-o-transform:   rotate(45deg);
+			transform:  rotate(45deg);
+			}
+		.box4{
+			-webkit-transform:  translate(10px, 20px);
+			-moz-transform:  translate(10px, 20px);
+			-ms-transform:  translate(10px, 20px);
+			-o-transform:  translate(10px, 20px);
+			transform:  translate(10px, 20px);
+		}
+		.box5{
+			-webkit-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			-moz-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+		 	-ms-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			-o-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">box</div>
+	<div class="translates">
+		<div class="box0">box0</div>
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+	</div>
+</body>
+</html>
