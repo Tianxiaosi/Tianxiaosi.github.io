@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=0"/> 
+    <title>No.5 - 纯 CSS 制作绕中轴旋转的立方体</title>
+    <style type="text/css">
+        body {
+            margin-top: 150px;
+            background-color: #acacac;
+        }
+
+        #container {
+            perspective: 800px;
+            perspective-origin: 50% 50%;
+        }
+
+        #box {
+            position: relative;
+            margin: 0 auto;
+            height: 400px;
+            width: 400px;
+            transform-style: preserve-3d;
+
+        }
+
+        #box:hover{
+            animation: move 15s infinite linear;
+        }
+        #box>div {
+            position: absolute;
+            height: 360px;
+            width: 360px;
+            padding: 20px;
+
+            /*opacity: .6;*/
+
+            text-align: center;
+            font-size: 80px;
+            line-height: 320px;
+            border: 1px solid blue;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        div#front {
+            transform: translateZ(200px);
+        }
+
+        div#back {
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+
+        div#left {
+          
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        div#right {
+          
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        div#top {
+         
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        div#bottom {
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+        @keyframes move {
+            from {
+                transform:  rotateY(0deg);
+            }
+            to {
+                transform:  rotateY(-360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="box">
+            <div id="front">1</div>
+            <div id="back">2</div>
+            <div id="left">3</div>
+            <div id="right">4</div>
+            <div id="top">5</div>
+            <div id="bottom">6</div>
+        </div>
+    </div>
+</body>
+</html>
