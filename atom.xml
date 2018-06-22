@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tianxiaosi.github.io/"/>
-  <updated>2018-06-22T02:13:22.400Z</updated>
+  <updated>2018-06-22T02:29:25.581Z</updated>
   <id>https://tianxiaosi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript数组的5种迭代方式</title>
+    <link href="https://tianxiaosi.github.io/2018/06/22/JavaScript%E6%95%B0%E7%BB%84%E7%9A%845%E7%A7%8D%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F/"/>
+    <id>https://tianxiaosi.github.io/2018/06/22/JavaScript数组的5种迭代方式/</id>
+    <published>2018-06-22T10:26:38.000Z</published>
+    <updated>2018-06-22T02:29:25.581Z</updated>
+    
+    <content type="html"><![CDATA[<p>ECMAScript 5 为数组定义了5个迭代方法。每个方法都接收<strong>两个参数</strong>： <strong>要在每一项上运行的函数和（可选的）运行该函数的作用域对象–影响this的值。</strong>  传入的这些方法中的函数会接收<strong>三个参数</strong>： <strong>数组项的值， 该项在数组中的位置和数组对象本身</strong>。 根据使用的方法不同，这个函数执行后的返回值可能会也可能不会影响访问的返回项。一下是这5个迭代方法的作用。</p><ul><li><blockquote><p> every() : 对数组中的每一项运行给定的函数，如果该函数对每一项都返回true，则返回true。</p></blockquote></li><li><blockquote><p> filter() : 对数组中的每一项运行给定的函数， 返回该函数会返回true的项组成的数组。</p></blockquote></li><li><blockquote><p> forEach() : 对数组中的每一项运行给定的函数。这个方法没有返回值。</p></blockquote></li><li><blockquote><p>map() : 对数组中的每一项运行给定的函数，  返回每次函数调用的结果组成的数组。</p></blockquote></li><li><blockquote><p>some() : 对数组中的每一项运行给定的函数，如果该函数对任一项返回true，则返回true。</p></blockquote></li></ul><hr><p>请看下面的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ES5： </div><div class="line">var numbers = [1,2,3,4,5,4,3,2,1]</div><div class="line">var everyReault = numbers.every(function(item, index, arr)&#123;</div><div class="line"> return item &gt; 2;</div><div class="line">&#125;)</div><div class="line">console.log(everyResult); //false</div><div class="line"></div><div class="line">var someResult = numbers.some(function(item, index, arr)&#123;</div><div class="line"> return item &gt;2;</div><div class="line">&#125;)</div><div class="line">console.log(someResult) //true</div><div class="line"></div><div class="line">ES6:</div><div class="line">   var numbers = [1,2,3,4,5,4,3,2,1];</div><div class="line">   var everyResult = numbers.every((item, index, arr)=&gt;&#123;</div><div class="line">   return item &gt;2;</div><div class="line">   &#125;)</div><div class="line">   console.log(everyResult); </div><div class="line"> </div><div class="line">   var someResult = numbers.some((item, index, arr)=&gt;&#123;</div><div class="line">   return item &gt; 2;</div><div class="line">   &#125;)</div><div class="line">   console.log(someResult)</div></pre></td></tr></table></figure></p><p>以上代码调用了<code>every()</code>和<code>some()</code>，传入的函数只要给定项大于2就会返回<code>true</code>。对于<code>every()</code>，它返回的是<code>false</code>，因为只用部分数组项符合条件。对于<code>some()</code>，结果就是<code>true</code>，因为至少有一项是大于2的。</p><hr><p>下面来看<code>filter()</code>函数，它利用指定的函数确定是否在返回的数组中包含的某一项。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ES5：</div><div class="line">var numbers = [1,2,3,4,5,4,3,2,1];</div><div class="line">var filterResult = numbers.filter(function(item. index, arr)&#123;</div><div class="line">return item &gt; 2;</div><div class="line">&#125;)</div><div class="line">console.log(filterResult); //[3,4,5,4,3]</div><div class="line"></div><div class="line">var mapResult = numbers.map(function(item, index, arr)&#123;</div><div class="line">return itme * 2;</div><div class="line">&#125;)</div><div class="line">console.log(mapResult); //[2,4,6,8,10,8,6,2]</div><div class="line"></div><div class="line">ES6：</div><div class="line">var numbers = [1,2,3,4,5,4,3,2,1];</div><div class="line">var filterResult = numbers.filter((item, index, arr)=&gt;&#123;</div><div class="line">return item &gt; 2;</div><div class="line">&#125;)</div><div class="line">console.log(filterResult)</div><div class="line"></div><div class="line">var mapResult = numbers.map((item, index, arr)=&gt;&#123;</div><div class="line">return item * 2;</div><div class="line">&#125;) </div><div class="line">console.log(mapResult);</div></pre></td></tr></table></figure></p><p>调用<code>filter()</code>方法创建并返回[3,4,5,4,3]，因为传入的函数对它们每一项都是<code>true</code>。<br>调用<code>map()</code>方法也返回一个数组，而这个数组的每一项都是在原始数组中对应项上运行传入函数的结果。</p><hr><p>最后一个方法是<code>forEach()</code>，它只对数组中的每一项运行传入的函数。这个方法没有返回值，本质上和for循环迭代数组一样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ES5:</div><div class="line">var numbers = [1,2,3,4,5,4,3,2,1]</div><div class="line">numbers.forEach(function(item, index, arr)&#123;</div><div class="line">//this it options</div><div class="line">&#125;)</div><div class="line">ES6:</div><div class="line">var numbers = [1,2,3,4,5,4,3,2,1]</div><div class="line">numbers.forEach((item. index, arr)=&gt;&#123;</div><div class="line">//options</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ECMAScript 5 为数组定义了5个迭代方法。每个方法都接收&lt;strong&gt;两个参数&lt;/strong&gt;： &lt;strong&gt;要在每一项上运行的函数和（可选的）运行该函数的作用域对象–影响this的值。&lt;/strong&gt;  传入的这些方法中的函数会接收&lt;strong&gt;三个
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://tianxiaosi.github.io/tags/javascript/"/>
+    
+      <category term="数组" scheme="https://tianxiaosi.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
   
   <entry>
     <title>嘴角上扬的青春</title>
